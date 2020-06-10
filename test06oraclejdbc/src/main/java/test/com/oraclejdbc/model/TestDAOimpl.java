@@ -25,6 +25,7 @@ public class TestDAOimpl implements TestDAO {
 	private final String SQL_SELECT_ALL = "SELECT * FROM STEST ORDER BY NUM DESC";
 	private final String SQL_SELECT_ONE = "SELECT * FROM STEST WHERE NUM = ?";
 	private final String SQL_UPDATE = "UPDATE STEST SET NAME = ?, TEL = ? WHERE NUM = ?";
+	private final String SQL_DELETE = "DELETE FROM STEST WHERE NUM = ? ";
 	
 	private Connection conn;
 	private PreparedStatement pstmt;
@@ -197,7 +198,43 @@ public class TestDAOimpl implements TestDAO {
 	@Override
 	public int delete(RequestVO vo) {
 		logger.info("delete() ... vo : {} ", vo);
-		return 1;
+		int result = 0;
+		
+		try {
+			conn = DriverManager.getConnection(URL, USER_ID, USER_PW);
+			pstmt = conn.prepareStatement(SQL_DELETE);			
+			pstmt.setInt(1, vo.getNum());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			result = 0;
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			result = 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 0;
+		} finally {
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
