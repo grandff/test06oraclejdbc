@@ -127,6 +127,28 @@
 		    <artifactId>ojdbc6</artifactId>
 		    <version>11.2.0.3.0</version> 
 		</dependency> -->
+		
+		<!-- BasicDataSource -->
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>		
+		</dependency>
+		<!-- JdbcTemplate -->
+		
+		<dependency>		
+			<groupId>org.springframework</groupId>			
+			<artifactId>spring-jdbc</artifactId>			
+			<version>3.2.4.RELEASE</version>		
+		</dependency>
+		
+		<!-- Mybatis -->		
+		<dependency>		
+			<groupId>org.mybatis</groupId>			
+			<artifactId>mybatis-spring</artifactId>			
+			<version>1.1.1</version>		
+		</dependency>
  
 	</dependencies>
     <build>

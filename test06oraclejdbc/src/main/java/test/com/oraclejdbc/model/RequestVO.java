@@ -16,7 +16,16 @@ public class RequestVO {
 	private int num;
 	private String name = "";
 	private String tel = "";
+	
+	private String searchKey = "";
+	private String searchWord = "";
 
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
 	public String getName() {
 		return name;
 	}
@@ -37,9 +46,18 @@ public class RequestVO {
 		this.num = num;
 	}
 	
+	
+	
+	public String getSearchWord() {
+		return searchWord;
+	}
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
 	@Override
 	public String toString() {
-		return "RequestVO [num=" + num + ", name=" + name + ", tel=" + tel + "]";
+		return "RequestVO [num=" + num + ", name=" + name + ", tel=" + tel + ", searchKey=" + searchKey
+				+ ", searchWord=" + searchWord + "]";
 	}	
 	
 }

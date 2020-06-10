@@ -1,6 +1,7 @@
 package test.com.oraclejdbc;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,21 @@ public class RequestController {
 		logger.info("select on");
 		
 		ArrayList<RequestVO> list = ts.selectAll();
+		model.addAttribute("list", list);
+						
+		return "/jsp/selectAll";
+	}
+	
+	@RequestMapping(value = "/search.do", method = RequestMethod.POST)
+	public String search(Model model, RequestVO vo, String searchKey, String searchWord) {
+		logger.info("select on");
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("searchKey", vo.getSearchKey());
+		map.put("searchWord", vo.getSearchWord());
+		
+		ArrayList<RequestVO> list = ts.searchList(map);
+		logger.info("select on !!!! {} " , list.size());
 		model.addAttribute("list", list);
 						
 		return "/jsp/selectAll";

@@ -1,6 +1,7 @@
 package test.com.oraclejdbc.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,10 @@ public class TestService {
 	
 	public ArrayList<RequestVO> selectAll(){
 		return dao.selectAll();
+	}
+	
+	public ArrayList<RequestVO> searchList(HashMap<String, String> map){
+		return dao.searchList(map);
 	}
 
 	public int delete(RequestVO vo) {

@@ -16,7 +16,16 @@
 <body>
 	<div class="container">
 		<h1 class="display-4">목록 화면</h1>
-		
+		<div class="text-center">
+			<form method="post" action="search.do">
+				<select name ="searchKey" class="select">
+					<option value="name">이름</option>
+					<option value="tel">번호</option>				
+				</select>
+				<input type="text" class="text" name = "searchWord" placeholder="검색어" value="${vo.searchWord }">
+				<input type="submit" class="btn btn-primary" value="검색"/>
+			</form>
+		</div>
 		<table class="table table-dark">
 			<thead>
 				<tr>
@@ -38,7 +47,12 @@
 				</c:forEach>								
 			<!-- 목록 off -->
 			</tbody>
-		</table>		
+		</table>
+		
+		<div class="text-center">			
+			<a href="/insert.do" class="btn btn-primary">입력</a> 
+			<a href="/"  class="btn btn-secondary">홈으로</a>
+		</div>		
 	</div>
 </body>
 </html>
