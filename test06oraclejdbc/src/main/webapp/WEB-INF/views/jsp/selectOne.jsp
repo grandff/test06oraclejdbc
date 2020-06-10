@@ -11,8 +11,10 @@
     	<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<script src="/resources/js/bootstrap.min.js"></script>
-	</head>ad>
+	</head>
 <body>
+<div class="container">
+	<h1 class="display-4">상세화면</h1>
 	<h1>결과</h1>
 	<h2>이름 : ${model.name }</h2>
 	<h2>번호 : ${model.tel }</h2>
@@ -25,5 +27,7 @@
 			<input type="submit">				
 		</form>
 	</div>	
+</div>
+
 </body>
 </html>
